@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Wine Classification</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body style="background-color: darkgrey;">
+  <div class="login">
+    <h1 align="center">Wine Classification Into Red OR White</h1>
+    <img src="https://images-prod.healthline.com/hlcmsresource/images/News/5819-wine_bottle_glass-1296x728-header.jpg" align="left" height="300" width="400"> </img>
+    <img src="https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2011/03/white-wine-basics-700x461.jpg" align="right" height="300" width="400">  </img>
+    
+    <!-- Main Input For Receiving Query to our ML -->
+    
+    <form align="center" action="{{ url_for('predict')}}" method="post">
+      <input type="text" placeholder="fixed acidity : 3.8 to 15.9" name="fixed acidity b/w 3.8 to 15.9" required="required" ><br>
+      <br>
+      <input type="text" placeholder="volatile acidity : 0.08 to 1.58" name="volatile acidity b/w 0.08 to 1.58" required="required" ><br>
+      <br>
+      <input type="text" placeholder="citric acid : 0 to 1.66" name="citric acid b/w 0 to 1.66" required="required" ><br>
+      <br>
+      <input type="text" placeholder="residual sugar : 0.6 to 65.8" name="residual sugar b/w 0.6 to 65.8" required="required" ><br>
+      <br>
+      <input type="text" placeholder="chlorides : 0 to 0.62" name="chlorides b/w 0 to 0.62" required="required" ><br>
+      <br>
+      <input type="text" placeholder="Free SO2 : 1 to 289" name="Free SO2 b/w 1 to 289" required="required" ><br>
+      <br>
+      <input type="text" placeholder="Total SO2 : 6 to 440" name="Total SO2 b/w 6 to 440" required="required" ><br>
+      <br>
+      <input type="text" placeholder="Density : 0.98 to 1.04" name="Density b/w 0.98 to 1.04" required="required" ><br>
+      <br>
+      <input type="text" placeholder="pH : 2.7 to 4.01" name="pH b/w 2.7 to 4.01" required="required" ><br>
+      <br>
+      <input type="text" placeholder="sulphates : 0.22 to 2.0" name="sulphates b/w 0.22 to 2.0" required="required" ><br>
+      <br>
+      <input type="text" placeholder="alcohol : 8 to 14.9" name="alcohol b/w 8 to 14.9" required="required" ><br>
+      <br>
+      <input type="text" placeholder="quality : 3 to 9" name="quality b/w 3 to 9" required="required" ><br>
+      <br>
+      <br>
+      <input type="submit" id="Check the Wine Category" value="Check the Wine Category" style="height:50px; width:300px; background-color: rgb(216, 160, 96); font-size: 25px;"><br>
+    </form>
+    <br>
+    <br>
+    <h2 align="center"> {{prediction_text}} </h2>
+  </div>
+</body>
+</html>
